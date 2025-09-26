@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6/5</title>
+  <link rel="stylesheet" href="css.css">
+  <style>
+    body {
+      margin-top: 300px;
+      font-family: 'Sarabun', sans-serif;
+      font-size: 22px;
+      background-color: #fdf6e3;
+      color: #333;
+    }
+    header {
+      text-align: center;
+    }
+    .typewriter {
+      white-space: pre-wrap;
+      display: inline-block;
+    }
+    #nextButton {
+      text-align: center;
+      margin-top: 40px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<audio autoplay loop>
+    <source src="Undertale.mp3.mp3" type="audio/mpeg">
+</audio>
+  <header id="typeArea"></header>
+
+  <div id="nextButton">
+    <a href="2.html"><button style="width: 100px; height: 50px;">สู้ๆๆ</button></a>
+  </div>
+
+  
+
+  <script>
+    const lines = [
+      "เทอม 2 คงเครียดมหาลัยน่าดูเลยเพวกเรา",
+      "เเต่ไม่เป็นไร เราห้องคิงห้องปกติเลยนะ!! ทุกคนคงได้มหาลัยในฝันเเน่ๆ",
+      "ขอ ให้ โชคดี กับมหาลัยในฝันนะครับ ทุกคนเลย คงหัวร้อนน่าดู",
+      "ที่ต้องมาอ่านอะไรไร้สาระเเบบนี้ก็เถอะ",
+      "เเต่ผมก็เเค่อยากยินดีกับทุกคนนะครับ"
+    ];
+
+    const typeArea = document.getElementById("typeArea");
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        const currentLine = lines[lineIndex];
+        if (charIndex < currentLine.length) {
+          typeArea.innerHTML += `<span class="typewriter">${currentLine.charAt(charIndex)}</span>`;
+          charIndex++;
+          setTimeout(typeLine, 170);
+        } else {
+          typeArea.innerHTML += "<br>";
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeLine, 500);
+        }
+      } else {
+        document.getElementById("nextButton").style.display = "block";
+      }
+    }
+
+    typeLine();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6/5</title>
+  <link rel="stylesheet" href="css.css">
+  <style>
+    body {
+      text-align: center;
+      margin-top: 300px;
+      font-family: 'Sarabun', sans-serif;
+      background: linear-gradient(to bottom, #fdf6e3, #ffe0e0);
+      color: #333;
+    }
+
+    #typewriter {
+      font-size: 32px;
+      line-height: 1.6;
+      display: inline-block;
+    }
+
+    .char {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(10px);
+      animation: fadeInUp 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+<audio autoplay loop>
+  <source src="omori.mp3" type="audio/mpeg">
+</audio>
+  <img src="605.png" style="width: 450px; height: 200px;">
+  <h1 id="typewriter"></h1>
+
+  <script>
+    const text = "สู้ๆนะเพื่อน 6/5\nถึงจะพึ่งผ่านไปเทอมเดียวก็เถอะ";
+    const container = document.getElementById("typewriter");
+    let delay = 0;
+
+    for (let i = 0; i < text.length; i++) {
+      const span = document.createElement("span");
+      span.textContent = text[i];
+      span.className = "char";
+      span.style.animationDelay = `${delay}s`;
+      container.appendChild(span);
+      delay += text[i] === "\n" ? 0.5 : 0.08;
+
+      if (text[i] === "\n") container.appendChild(document.createElement("br"));
+    }
+  </script>
+
+</body>
+</html>
