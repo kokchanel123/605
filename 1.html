@@ -58,7 +58,7 @@
         if (charIndex < currentLine.length) {
           typeArea.innerHTML += `<span class="typewriter">${currentLine.charAt(charIndex)}</span>`;
           charIndex++;
-          setTimeout(typeLine, 170);
+          setTimeout(typeLine, 50);
         } else {
           typeArea.innerHTML += "<br>";
           lineIndex++;
@@ -74,4 +74,5 @@
   </script>
 
 </body>
+
 </html>
